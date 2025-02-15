@@ -220,13 +220,13 @@ while true; do
         1) install_docker ;;
         2) install_waku ;;
         3) start_waku ;;
-        3) edit_env ;;
-        4) docker_restart ;;
-        5) view_logs ;;
-        6) stop_node ;;
-        7) update_waku ;;
-        8) check_health ;;
-        9)
+        4) edit_env ;;
+        5) docker_restart ;;
+        6) view_logs ;;
+        7) stop_node ;;
+        8) update_waku ;;
+        9) check_health ;;
+        10)
             echo -e "${EXIT} Exiting..."
             exit 0
             ;;
