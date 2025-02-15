@@ -184,7 +184,7 @@ update_waku() {
 check_health() {
     echo -e "${INFO} Checking node health with ./chkhealth.sh...${RESET}"
     if [ -x "./chkhealth.sh" ]; then
-        ./chkhealth.sh
+        ./nwaku-compose/chkhealth.sh
     else
         echo -e "${ERROR} Health check script ./chkhealth.sh not found or not executable."
     fi
