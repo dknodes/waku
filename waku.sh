@@ -84,6 +84,7 @@ install_waku() {
 }
 
 start_waku(){
+    cd nwaku-compose
     docker compose up -d
     echo -e "${CHECKMARK} Waku node started successfully.${RESET}"
     cd ..
