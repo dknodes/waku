@@ -74,13 +74,20 @@ install_waku() {
     else
         git clone https://github.com/waku-org/nwaku-compose
         cd nwaku-compose || return
-        ./setup_wizard.sh
+        
     fi
-    
+    ./setup_wizard.sh
+    # docker compose up -d
+    echo -e "${CHECKMARK} Waku node install successfully.${RESET}"
+    cd ..
+    read -p "Press Enter to return to the main menu..."
+}
+
+start_waku(){
     docker compose up -d
     echo -e "${CHECKMARK} Waku node started successfully.${RESET}"
     cd ..
-    read -p "Press Enter to return to the main menu..."
+    read -p "Press Enter to return to the main menu...
 }
 
 # ----------------------------
@@ -191,15 +198,16 @@ show_menu() {
     display_ascii
     echo -e "    ${YELLOW}Choose an operation:${RESET}"
     echo -e "    ${CYAN}1.${RESET} ${INSTALL} Install Docker"
-    echo -e "    ${CYAN}2.${RESET} ${INSTALL} Install/Start Waku Node"
-    echo -e "    ${CYAN}3.${RESET} ${INFO} Edit .env File"
-    echo -e "    ${CYAN}4.${RESET} ${RESTART} Restart Containers"
-    echo -e "    ${CYAN}5.${RESET} ${LOGS} View Logs"
-    echo -e "    ${CYAN}6.${RESET} ${STOP} Stop Waku Node"
-    echo -e "    ${CYAN}7.${RESET} ${INFO} Update Waku Node"
-    echo -e "    ${CYAN}8.${RESET} ${INFO} Check Node Health"
-    echo -e "    ${CYAN}9.${RESET} ${EXIT} Exit"
-    echo -ne "    ${YELLOW}Enter your choice [1-9]: ${RESET}"
+    echo -e "    ${CYAN}2.${RESET} ${INSTALL} Install Waku Node"
+    echo -e "    ${CYAN}3.${RESET} ${INSTALL} Start Waku Node"
+    echo -e "    ${CYAN}4.${RESET} ${INFO} Edit .env File"
+    echo -e "    ${CYAN}5.${RESET} ${RESTART} Restart Containers"
+    echo -e "    ${CYAN}6.${RESET} ${LOGS} View Logs"
+    echo -e "    ${CYAN}7.${RESET} ${STOP} Stop Waku Node"
+    echo -e "    ${CYAN}8.${RESET} ${INFO} Update Waku Node"
+    echo -e "    ${CYAN}9.${RESET} ${INFO} Check Node Health"
+    echo -e "    ${CYAN}10.${RESET} ${EXIT} Exit"
+    echo -ne "    ${YELLOW}Enter your choice [1-10]: ${RESET}"
 }
 
 # ----------------------------
@@ -211,6 +219,7 @@ while true; do
     case $choice in
         1) install_docker ;;
         2) install_waku ;;
+        3) start_waku ;;
         3) edit_env ;;
         4) docker_restart ;;
         5) view_logs ;;
