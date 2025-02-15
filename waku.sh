@@ -74,6 +74,7 @@ install_waku() {
     else
         git clone https://github.com/waku-org/nwaku-compose
         cd nwaku-compose || return
+        ./setup_wizard.sh
     fi
     
     docker compose up -d
