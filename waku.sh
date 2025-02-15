@@ -87,7 +87,7 @@ start_waku(){
     docker compose up -d
     echo -e "${CHECKMARK} Waku node started successfully.${RESET}"
     cd ..
-    read -p "Press Enter to return to the main menu...
+    read -p "Press Enter to return to the main menu..."
 }
 
 # ----------------------------
